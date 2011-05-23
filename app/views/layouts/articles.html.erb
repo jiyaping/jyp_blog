@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Articles: <%= controller.action_name %></title>
+		<%= stylesheet_link_tag 'style.css' %>
+		<%= javascript_include_tag :defaults%>
+		<title>index page</title>
+	</head>
+	<body >
+		<div id="container">
+			<div id="header">
+				<div id="title">Jumping's Note</div>
+				<div id="subtitle">Code for fun</div>
+			</div>
+			<div id="content">
+			  <p style="color: green"><%= flash[:notice] %></p>
+			  <%= yield  %>
+			</div>
+			<div id="sidebar">
+				<ul>
+			<li>
+				<h2>Categories </h2>
+				<ul><%=show_categories%></ul>
+			</li>
+
+       <li>
+				<h2>Archives</h2>
+				<ul>
+				<%Article.article_date.each do |d|%>
+				  <li><%= link_to d,:controller=>'tags',:action=>'show_within_date',:id=>d%></li>
+				<% end %>
+				</ul>
+			</li>
+
+			<li>
+				<h2>on internet</h2>
+				<ul><%= show_links%></ul>
+			</li>
+		</ul>
+
+		</div>
+		<hr class="clear"/>
+			<div id="footer">
+					<p>Copyright (c) 2011 jiyaping.*. All rights reserved. Design by <a href="mailto:jiyaping0802@gmail.com">jiyaping</a>.</p>
+			</div>
+		</div>
+	</body>
+</html>
+

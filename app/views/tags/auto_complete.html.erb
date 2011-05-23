@@ -1,0 +1,6 @@
+<p><label for="tag_name">tag name</label><br />
+<%=text_field "tag","name"%></p>
+<div class="auto_complete" id="tag_name_auto_complete">
+</div>
+<%=auto_complete_field :tag_name_auto_complete,:url=>{:action=>'auto_complete_tag_name'},:tokens=>','%>
+

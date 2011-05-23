@@ -1,0 +1,40 @@
+<div class="article">
+				<h1 class="article-title"><%=@article.title%></h1>
+				<span class="article-date">2011-05-16</span>
+				<div class="article-summary">
+				<p><%=@article.content%></p>
+				</div>
+				<div class="article-info">
+				<span id="tag">Tags:
+					<%=show_tags(@article)%>
+				</span>
+				<span id="comment-times">comment(<%=@article.comments.count%>)</span>
+				<span id="view-times">view times(<%= view_times(@article)%>)</span>
+				</div>
+				<hr id="insperator" />
+
+				<div id="comments">
+				  <% for comment in @comments%>
+				    <div id="comment-item">
+                <span id="comment-name"><%= comment.name%></span>
+                <span id="comment-at">At</span>
+                <span id="comment-time"><%= comment.time%></span>
+                <span id="comment-say">Says:</span>
+                <span id="comment-content"><%= comment.content%></span>
+                <span id="comment-reply"><a href="">reply &nbsp;-&gt;</a></span>
+				    </div>
+				  <% end %>
+
+				  <div id="comment"><br />
+				  <label>Add Your Comment:</label>
+				    <% form_for :comment,:url=>{:action=>'add_comment'} do |form|%>
+				      <%=hidden_field :comment,:article_id,:value=>@article.id%>
+				      <p><label>Your Name:</label> <%= form.text_field :name,:size=>30%></p>
+				      <p><label>Your Email:</label>  <%= form.text_field :email,:size=>30%></p>
+				      <p><label>Your Comment:</label> <%= form.text_area :content,:cols=>30,:rows=>10%></p>
+				      <p><%=submit_tag "commit"%></p>
+				    <% end %>
+				  </div>
+				</div>
+</div>
+

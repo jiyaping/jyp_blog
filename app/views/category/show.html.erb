@@ -1,0 +1,10 @@
+<!--<div id="show_category">
+  <p>
+    <span>Name:</span><span><%= @category.name%></span><br />
+    <span>Created time:</span><span><%= @category.time%></span><br />
+    <span>Article number:</span><span><%=show_article_count(@category)%></span><br />
+  </p>
+  <span id="back_link"><%=link_to "<--back",:action=>"index" %></span>
+</div>-->
+<%= in_place_editor_field :category,"name"%>
+

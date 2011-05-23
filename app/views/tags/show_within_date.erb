@@ -1,0 +1,12 @@
+<h1><%=flash[:archive].sub!("-","年").sub!("-","日")%> 写过这些：</h1><br />
+<div>
+<table>
+<%@articles.each do |article|%>
+<tr>
+<td><%=link_to article.title,:controller=>'articles',:action=>"show",:id=>article%></td>
+<td><%=ch_date(article.created_at)%></td>
+</tr>
+<%end %>
+</table>
+</div>
+

@@ -1,0 +1,7 @@
+<label>Add Category</label>
+<% form_for :category,:action=>'add' do |form|%>
+<label>Name</label>
+<%= form.text_field :name%><br/>
+<%= submit_tag "add category"%>
+<% end %>
+

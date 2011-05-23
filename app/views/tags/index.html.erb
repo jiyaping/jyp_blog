@@ -1,0 +1,11 @@
+<h1>All Tags:</h1>
+<div id="tags">
+<% for tag in @tags%>
+<span id="tag_<%=tag.id%>" class="tag">
+ <%=link_to tag.name,tag%>
+</span>
+<% end %>
+</div>
+<br />
+<%= link_to 'New tag', new_tag_path %>
+

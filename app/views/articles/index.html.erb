@@ -1,0 +1,19 @@
+<% for article in @articles%>
+<div class="article">
+				<h1 class="article-title"><%=link_to article.title,article_path(article)%></h1>
+				<span class="article-date">2011-05-16</span>
+				<div class="article-summary">
+				<p><%=article.content%></p>
+				</div>
+				<div class="article-info">
+				<span id="tag">Tags:
+					<%=show_tags(article)%>
+				</span>
+				<span id="comment-times">comment(<%=article.comments.count%>)</span>
+				<span id="view-times">view times(0)</span>
+				<span id="read-more"><%=link_to 'read more &gt;&gt;',article_path(article)%></span>
+				</div>
+				<hr id="insperator" />
+</div>
+<% end %>
+

@@ -1,0 +1,11 @@
+<table id="category">
+<% for category in @categories%>
+<tr>
+<td><%=category.name%>(<%=show_article_count(category)%>)</td>
+<td><%=link_to 'show',:action=>"show",:id=>category%></td>
+<td><%=link_to 'edit',:action=>"edit",:id=>category%></td>
+<td><%=link_to 'delete',{:action=>"delete",:id=>category},:confirm=>"are you sure?",:method=>:delete%></td>
+</tr>
+<% end %>
+</table>
+
